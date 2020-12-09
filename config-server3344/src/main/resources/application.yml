@@ -1,0 +1,22 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MirandaJie/springcloud-config.git #GitHub上面的git仓库名字
+          search-paths: dev,prod,test #如果git项目中没有二级文件夹，则将引入全部配置文件，有文件夹则需添加文件夹路径
+          username: MirandaJie
+          password: 
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka
+  instance:
+    instance-id: config-server3344
+    prefer-ip-address: true

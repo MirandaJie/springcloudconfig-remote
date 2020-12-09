@@ -1,0 +1,24 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka
+  instance:
+    instance-id: config-client3355
+    prefer-ip-address: true
