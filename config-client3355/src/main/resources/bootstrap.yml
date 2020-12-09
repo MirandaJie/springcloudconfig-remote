@@ -22,3 +22,11 @@ eureka:
   instance:
     instance-id: config-client3355
     prefer-ip-address: true
+#开启所有服务端点权限
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
